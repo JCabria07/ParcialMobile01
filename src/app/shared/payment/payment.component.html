@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackToCart()" style="cursor: pointer;">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Regresar al carrito
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; display: flex; justify-content: center; align-items: center;">
+      <ion-icon name="card-outline" style="margin-right: 8px;"></ion-icon>
+      Pago Seguro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Información de Pago</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre en la tarjeta</ion-label>
+        <ion-input type="text" [(ngModel)]="paymentData.name" placeholder="Juan Perez"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Número de tarjeta</ion-label>
+        <ion-input type="text" maxlength="16" placeholder="Ingresar los 16 digitos de la tarjeta" [(ngModel)]="paymentData.cardNumber"></ion-input>
+      </ion-item>
+
+      <div class="card-details">
+        <ion-item>
+          <ion-label position="floating">Fecha de vencimiento</ion-label>
+          <ion-input type="text" placeholder="MM/YY" [(ngModel)]="paymentData.expiry"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">CVV</ion-label>
+          <ion-input type="password" maxlength="3" placeholder="Código de 3 números, ubicado en el reverso de la tarjeta" [(ngModel)]="paymentData.cvv"></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-item>
+        <ion-label>Seleccionar método de pago</ion-label>
+        <ion-select [(ngModel)]="paymentData.method">
+          <ion-select-option value="credit">Tarjeta de crédito</ion-select-option>
+          <ion-select-option value="debit">Tarjeta de débito</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="full" color="success" (click)="processPayment()">
+        <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+        Pagar {{ total | currency: 'USD' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

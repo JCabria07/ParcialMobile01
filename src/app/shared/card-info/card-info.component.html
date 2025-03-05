@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title-centered">
+      <strong>{{ product.title }}</strong>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <img [src]="product.image" [alt]="product.title" />
+
+    <ion-card-header>
+      <ion-card-subtitle><strong>{{ product.category }}</strong></ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p class="description">{{ product.description }}</p>
+
+      <p>
+        <strong class="price">Precio: ${{ product.price }} USD</strong>
+      </p>
+
+      <p>
+        <ion-icon name="layers-outline"></ion-icon>
+        Cantidad: {{ product.rating.count }}
+      </p>
+
+      <p>
+        <ion-icon *ngFor="let i of getRatingArray(product.rating.rate)" name="star" class="gold-star"></ion-icon>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

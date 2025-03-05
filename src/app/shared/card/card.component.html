@@ -1,0 +1,22 @@
+<ion-card>
+  <img [src]="product.image" [alt]="product.title" />
+
+  <ion-card-header>
+    <ion-card-title>{{ product.title }}</ion-card-title>
+    <ion-card-subtitle>Categoría: {{ product.category }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p><strong>Precio: ${{ product.price }} USD</strong></p>
+
+    <div class="card-buttons">
+      <ion-button (click)="verDetalles(product)" fill="outline" color="primary">
+        Más información
+      </ion-button>
+      
+      <ion-button expand="full" color="success" (click)="agregarAlCarrito(product)">
+        Agregar al carrito
+      </ion-button>
+    </div>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,13 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>TIENDA VIRTUAL</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="goToCart()" style="cursor: pointer;">
+          <ion-icon name="cart-outline"></ion-icon>
+          <ion-badge class="cart-badge">{{ uniqueCartItems }}</ion-badge>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+</div>

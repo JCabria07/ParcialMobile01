@@ -1,0 +1,16 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 40px;
+  
+  height: 100%;
+  overflow-y: auto;
+}
+
+
+ion-spinner {
+  --color: #54dc98;
+}
+

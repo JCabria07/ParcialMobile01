@@ -1,0 +1,47 @@
+ion-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  ion-card-header,
+  ion-card-content {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+ion-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
+.card-buttons {
+  display: flex;
+  flex-direction: column; 
+  gap: 3px; 
+  margin-top: 10px;
+  width: 100%;
+}
+
+ion-button {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+}

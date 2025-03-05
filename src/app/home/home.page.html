@@ -1,0 +1,16 @@
+<ion-content fullscreen="true">
+  <app-menu></app-menu>
+  
+  <!-- Espaciado para separar del menú -->
+  <div style="height: 3rem;"></div>
+
+  <div class="content">
+    <ion-grid>
+      <ion-row class="wrap">
+        <ion-col size="6" size-md="4" size-lg="2" *ngFor="let item of products">
+          <app-card [product]="item"></app-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

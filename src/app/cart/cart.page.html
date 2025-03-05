@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goToHome()" style="cursor: pointer;">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Volver al inicio
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title style="text-align: center; display: flex; justify-content: center; align-items: center;">
+      <ion-icon name="cash-outline" style="margin-right: 8px;"></ion-icon>
+      Carrito de compras
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button color="success" (click)="togglePayment()">
+        <ion-icon name="card-outline" slot="start"></ion-icon>
+        Pagar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!showPayment">
+    <ion-list *ngIf="cartItems.length > 0; else emptyCart">
+      <ion-item *ngFor="let item of cartItems; let i = index">
+        <ion-thumbnail slot="start">
+          <img [src]="item.image" alt="Imagen del producto">
+        </ion-thumbnail>
+
+        <ion-label>
+          <h2><strong>{{ item.name }}</strong></h2>
+          <p>Precio: ${{ item.price * item.quantity }}</p>
+        </ion-label>
+
+        <ion-button fill="clear" color="danger" (click)="decreaseQuantity(item)">
+          <ion-icon name="remove-circle-outline"></ion-icon>
+        </ion-button>
+        <span>{{ item.quantity }}</span>
+        <ion-button fill="clear" color="success" (click)="increaseQuantity(item)">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-footer>
+      <ion-toolbar>
+        <ion-title>Total: ${{ getTotalPrice() }}</ion-title>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+
+  <!-- Componente de pago -->
+  <app-payment *ngIf="showPayment"></app-payment>
+
+  <ng-template #emptyCart>
+    <div class="empty-cart">
+      <p>Tu carrito está vacío.</p>
+    </div>
+  </ng-template>
+</ion-content>
