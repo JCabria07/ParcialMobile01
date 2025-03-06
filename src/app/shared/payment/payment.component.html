@@ -1,11 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="goBackToCart()" style="cursor: pointer;">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-        Regresar al carrito
-      </ion-button>
-    </ion-buttons>
     <ion-title style="text-align: center; display: flex; justify-content: center; align-items: center;">
       <ion-icon name="card-outline" style="margin-right: 8px;"></ion-icon>
       Pago Seguro
@@ -32,7 +26,7 @@
       <div class="card-details">
         <ion-item>
           <ion-label position="floating">Fecha de vencimiento</ion-label>
-          <ion-input type="text" placeholder="MM/YY" [(ngModel)]="paymentData.expiry"></ion-input>
+          <ion-input type="text" placeholder="MMYY" [(ngModel)]="paymentData.expiry"></ion-input>
         </ion-item>
 
         <ion-item>

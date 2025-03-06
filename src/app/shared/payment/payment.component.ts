@@ -25,7 +25,8 @@ export class PaymentComponent {
   constructor(
     private router: Router,
     private toastController: ToastController,
-    private cartService: CartService
+    private cartService: CartService,
+    
   ) {}
 
   ngOnInit() {
@@ -75,7 +76,5 @@ export class PaymentComponent {
     await toast.present();
   }
 
-  goBackToCart() {
-    this.router.navigate(['/cart']); 
-  }
+  
 }
